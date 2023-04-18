@@ -19,13 +19,16 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/app/well/{dh_no}")
 def well(request: Request, dh_no: int):
     summ = gd.wells_summary([dh_no])
+    well_summary = summ.iloc[0].to_dict()
+    context = {
+        "request": request,
+        "title": gd.make_well_title(**well_summary),
+        "summary_table": summ.T.to_html(),
+    }
+    context.update(well_summary)
     return templates.TemplateResponse(
         "well.html",
-        context={
-            "request": request,
-            "title": summ.unit_hyphen.iloc[0],
-            "summary_table": summ.T.to_html(),
-        },
+        context=context,
     )
 
 

@@ -4,6 +4,11 @@
     </head>
     <body>
         <h1>{{ title }}</h1>
+        <p>Groundwater Data link: 
+            <a href="https://www.waterconnect.sa.gov.au/Systems/GD/Pages/Details.aspx?DHNO={{ dh_no }}">
+                https://www.waterconnect.sa.gov.au/Systems/GD/Pages/Details.aspx?DHNO={{ dh_no }}
+            </a>
+        </p>
         {{ summary_table|safe }}
     </body>
 </html>

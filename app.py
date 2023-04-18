@@ -23,7 +23,8 @@ def well(request: Request, dh_no: int):
         "well.html",
         context={
             "request": request,
-            "summ": summ,
+            "title": summ.unit_hyphen.iloc[0],
+            "summary_table": summ.T.to_html(),
         },
     )
 

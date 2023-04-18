@@ -1,3 +1,9 @@
-<h1>Well summary</h1>
-
-{{ summ.T.to_html()|safe }}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        {{ summary_table|safe }}
+    </body>
+</html>

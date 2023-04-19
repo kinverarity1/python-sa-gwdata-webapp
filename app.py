@@ -28,6 +28,7 @@ def well(request: Request, dh_no: int):
         dh_no=well_summary["dh_no"],
         obs_no=well_summary["obs_no"],
         unit_no=well_summary["unit_long"],
+        name=well_summary["dh_name"],
     )
     context = {
         "request": request,
